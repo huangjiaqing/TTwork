@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
+const FriendlyError = require('friendly-errors-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base')
 
 module.exports = webpackMerge(baseWebpackConfig, {
@@ -16,4 +17,7 @@ module.exports = webpackMerge(baseWebpackConfig, {
 
   devtool: "cheap-module-eval-source-map",
 
+  plugins: [
+    new FriendlyError()
+  ]
 })

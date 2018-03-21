@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { resolve } = require('path')
 
-const root = dir => resolve(__dirname, `../../${dir}`)
+const root = (dir='') => resolve(__dirname, `../../${dir}`)
 
 module.exports = {
 
@@ -19,6 +19,12 @@ module.exports = {
     path: resolve(__dirname, './dist'),
     filename: '[name].js',
     publicPath: '/'
+  },
+
+  resolve: {
+    alias: {
+      '~': root()
+    }
   },
 
   module: {
