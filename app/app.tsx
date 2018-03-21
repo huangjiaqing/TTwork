@@ -1,12 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import styles from './app.css'
+import { Layout } from './base/'
 
-const Hello = () => {
-
-  return (
-    <div className={styles.hello}>hello</div>
-  )
-}
-
-ReactDOM.render(<Hello />, document.getElementById('app'))
+ReactDOM.render(<Layout />, document.getElementById('app'))

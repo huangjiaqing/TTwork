@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     app: [
       'normalize.css',
+      './app/app.css',
       './app/app.tsx'
     ]
   },
@@ -22,6 +23,7 @@ module.exports = {
   },
 
   resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"],
     alias: {
       '~': root()
     }
@@ -45,15 +47,33 @@ module.exports = {
               sourceMap: true,
               importLoaders: 1,
               module: true,
-              camelCase: true
+              camelCase: true,
+              localIdentName: '[name]__[local]-[hash:base64:5]',
             }
           },
           'postcss-loader'
         ],
         include: [
           root('app'),
-          root('node_modules/normalize.css')
+          root('node_modules/normalize.css'),
+          root('/node_modules/tb-icons/lib/styles/tb-icons.css')
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: '[name].[hash:7].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: '[name].[hash:7].[ext]'
+        }
       }
     ]
   },

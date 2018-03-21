@@ -1,1 +1,1 @@
-export const hello: string;
+export {};

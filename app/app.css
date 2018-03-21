@@ -1,3 +1,15 @@
-.hello {
-  color: red;
+:global(html){
+  font-size: 12px;
+}
+
+:global(h2), :global(h4){
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+
+:global(.can-click) {
+  user-select: none;
+  cursor: pointer;
 }
