@@ -1,6 +1,6 @@
 import React from 'react'
 
-const styles = {
+const style = {
   display: 'inline-block',
   width: '28px',
   height: '28px',
@@ -8,10 +8,18 @@ const styles = {
   borderRadius: '50%'
 }
 
-export default function Avatar() {
+interface Props {
+  onClick?: () => any
+}
+
+export default function Avatar(props: Props) {
+  let avatarProps = {
+    style,
+    onClick: props.onClick || function () {}
+  }
 
   return (
-    <span style={styles}>
+    <span {...avatarProps}>
     </span>
   )
 }

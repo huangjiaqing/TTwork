@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Icon from '../../icon/'
 import Avatar from '../../avatar/'
+import Popover from '../../popover/'
 import styles from './Header.css'
 
 export default class Header extends Component {
@@ -11,10 +12,11 @@ export default class Header extends Component {
       <header className={styles.header}>
         {this.renderOrg()}
         <section className={styles.search}>
-          {/* <input /> */}
         </section>
         <section className={styles.me}>
-          <Avatar />
+          <Popover>
+            <Avatar />
+          </Popover>
         </section>
       </header>
     )
