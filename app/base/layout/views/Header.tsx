@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import className from 'classnames'
 import Icon from '../../icon/'
-import Avatar from '../../avatar/'
 import styles from './Header.css'
 import OrgSelect from './OrgSelect'
-import { Popover } from 'antd'
+import { Avatar } from 'antd'
 
 export default class Header extends Component {
 
@@ -16,7 +15,7 @@ export default class Header extends Component {
         <section className={styles.search}>
         </section>
         <section className={styles.me}>
-          <Avatar />
+          <Avatar icon="user"/>
         </section>
       </header>
     )

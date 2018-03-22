@@ -38,9 +38,6 @@ module.exports = {
         exclude: '/node_modules/',
         include: [root('app'), root('test')],
         use: [
-          // {
-          //   loader: 'react-hot-loader/webpack',
-          // },
           {
             loader: 'ts-loader',
             options: {
