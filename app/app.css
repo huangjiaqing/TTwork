@@ -1,8 +1,13 @@
+:global(*) {
+  box-sizing: border-box;
+}
+
 :global(html){
   font-size: 12px;
 }
 
-:global(h2), :global(h4){
+:global(h2), :global(h4), :global(li), :global(ul) {
+  list-style: none;
   font-size: 1rem;
   padding: 0;
   margin: 0;
@@ -12,4 +17,8 @@
 :global(.can-click) {
   user-select: none;
   cursor: pointer;
+}
+
+:global(.ant-popover-inner-content) {
+  padding: 0 !important;
 }

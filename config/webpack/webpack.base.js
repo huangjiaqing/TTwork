@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const tsImportPluginFactory = require('ts-import-plugin')
 const { resolve } = require('path')
 
 const root = (dir='') => resolve(__dirname, `../../${dir}`)
@@ -11,6 +12,7 @@ module.exports = {
   entry: {
     app: [
       'normalize.css',
+      'react-hot-loader/patch',
       './app/app.css',
       './app/app.tsx'
     ]
@@ -33,8 +35,26 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: '/node_modules/'
+        exclude: '/node_modules/',
+        include: [root('app'), root('test')],
+        use: [
+          // {
+          //   loader: 'react-hot-loader/webpack',
+          // },
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              getCustomTransformers: () => ({
+                before: [ tsImportPluginFactory({
+                  libraryName: 'antd',
+                  libraryDirectory: 'es',
+                  style: 'css',
+                }) ]
+              })
+            }
+          }
+        ],
       },
       {
         test: /\.css$/,
@@ -49,6 +69,7 @@ module.exports = {
               module: true,
               camelCase: true,
               localIdentName: '[name]__[local]-[hash:base64:5]',
+              less: true
             }
           },
           'postcss-loader'
@@ -57,6 +78,24 @@ module.exports = {
           root('app'),
           root('node_modules/normalize.css'),
           root('/node_modules/tb-icons/lib/styles/tb-icons.css')
+        ],
+        exclude: [root('/node_modules/antd'),]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'postcss-loader',
+        ],
+        include: [root('/node_modules/antd'),]
+      },
+      {
+        test: /\.less$/,
+        include: [root('app'), root('node_modules/antd')],
+        use: [
+          'style-loader',
+          'postcss-loader',
+          'less-loader'
         ]
       },
       {
@@ -83,7 +122,8 @@ module.exports = {
       filename: 'index.html',
       template: resolve(__dirname, '../template/index.html'),
       inject: true
-    })
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
 
 }

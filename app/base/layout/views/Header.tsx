@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import className from 'classnames'
 import Icon from '../../icon/'
 import Avatar from '../../avatar/'
-import Popover from '../../popover/'
 import styles from './Header.css'
+import OrgSelect from './OrgSelect'
+import { Popover } from 'antd'
 
 export default class Header extends Component {
 
@@ -14,9 +16,7 @@ export default class Header extends Component {
         <section className={styles.search}>
         </section>
         <section className={styles.me}>
-          <Popover>
-            <Avatar />
-          </Popover>
+          <Avatar />
         </section>
       </header>
     )
@@ -26,12 +26,14 @@ export default class Header extends Component {
 
     return (
       <section className={styles.org}>
-        <Icon
-          type="icon-menu"
-          className={styles.orgIcon}
-        />
+        <OrgSelect>
+          <Icon
+            type="icon-menu"
+            className={className(styles.orgIcon, 'can-click')}
+          />
+        </OrgSelect>
         <h2>
-          油车科技有限公司
+          油车文化
         </h2>
       </section>
     )

@@ -1,0 +1,55 @@
+.orgSelect {
+  width: 26rem;
+}
+
+.orgSelect > ul {
+  margin-bottom: 0;
+  padding: 0.5rem 0;
+}
+
+.orgItem {
+  padding: 1.2rem ;
+  font-size: 1.1rem;
+  color: #383838;
+  display: flex;
+  align-items: center;
+}
+
+.orgItem, .addOrg {
+  transition: background-color 100ms ease-in;
+}
+
+.orgItem:hover, .addOrg:hover {
+  background-color: #f5f5f5;
+}
+
+.orgItem > span:first-child {
+  width: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.selectIcon {
+  font-size: 1.1rem;
+  color: gray;
+}
+
+.selectItem {
+  font-weight: 500;
+}
+
+.addOrg {
+  padding: 1.2rem ;
+  border-top: 1px solid #f5f5f5;
+  display: flex;
+  align-items: center;
+  color: #383838;
+}
+
+.addOrg > span {
+  font-size: 1.1rem;
+}
+
+.addIcon {
+  width: 2rem;
+}

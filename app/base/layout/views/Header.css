@@ -16,7 +16,7 @@
 }
 
 .org {
-  
+  color: #383838;
 }
 
 .orgIcon {
@@ -27,8 +27,9 @@
 
 .org > h2 {
   display: inline-block;
-  color: #383838;
   font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
 .search {
