@@ -10,10 +10,8 @@ module.exports = webpackMerge(baseWebpackConfig, {
   devServer: {
     host: '127.0.0.1',
     port: '8888',
-    historyApiFallback: {
-      index: '/dist/'
-    },
-    hot: true
+    historyApiFallback: true,
+    hot: true,
   },
 
   devtool: "cheap-module-eval-source-map",

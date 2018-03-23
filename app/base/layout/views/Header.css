@@ -22,7 +22,7 @@
 .orgIcon {
   color: #ccc;
   font-size: 1.2rem;
-  padding: 0 1rem;
+  padding: 0 1.2rem;
 }
 
 .org > h2 {
@@ -37,5 +37,5 @@
 }
 
 .me {
-  padding-right: 1rem;
+  padding-right: 1.2rem;
 }

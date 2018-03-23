@@ -1,16 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Layout } from './base/'
+import RoutesMap from './routes'
 import { AppContainer } from 'react-hot-loader'
 
-const App = () => (
-  <AppContainer>
-    <Layout />
-  </AppContainer>
-)
 
-ReactDOM.render(<App />, document.getElementById('app'))
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>
+    , document.getElementById('app')
+  )
+}
+
+render(RoutesMap)
 
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept(['./routes'], () => {
+    const newRoutes = require('./routes').default
+    render(newRoutes)
+  })
 }
