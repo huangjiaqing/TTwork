@@ -29,14 +29,19 @@
 .projItem {
   width: 272px;
   height: 136px;
-  background-color: #40a9ff;
+  background-color: #13c2c2;
   border-radius: 0.6rem;
   display: inline-block;
   transition: box-shadow 0.218s ease;
   transition: transform .218s ease;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 1.7rem 1.7rem 0;
   line-height: 0;
+  background-image: url(https://i.loli.net/2018/03/25/5ab6f3f69450a.jpg);
+  background-size: 100% 100%;
+}
+
+.projItem:nth-child(4n) {
+  margin-right: 0;
 }
 
 .projItem:hover {
@@ -75,6 +80,6 @@
   margin-right: 0.6rem;
 }
 
-.iconStar {
-
+.iconStar.stared {
+  color: #fadb14;
 }

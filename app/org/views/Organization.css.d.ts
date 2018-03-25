@@ -7,3 +7,4 @@ export const action: string;
 export const projIcon: string;
 export const iconEdit: string;
 export const iconStar: string;
+export const stared: string;
