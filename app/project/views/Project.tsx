@@ -39,12 +39,27 @@ export default class Project extends React.Component {
   renderBody() {
     return (
       <div className={styles.body}>
-        {/* 这是body */}
+        <div className={styles.scrum}>
+          {this.renderStage()}
+          {this.renderStage()}
+          {this.renderStage()}
+          {this.renderStage()}
+          {this.renderStage()}
+          {this.renderStage()}
+        </div>
       </div>
     )
   }
 
-  renderProjectOpt(chilren) {
+  renderStage() {
+    return (
+      <div className={styles.stage}>
+        
+      </div>
+    )
+  }
+
+  renderProjectOpt(chilren: string) {
     return (
       <Popover
         content="你好"
