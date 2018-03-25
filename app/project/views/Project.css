@@ -31,14 +31,25 @@
   display: flex;
   align-items: center;
   padding: 0 1.2rem;
+  color: gray;
 }
 
 .action > li > span:last-child {
-  margin-left: 0.4rem;
+  margin-left: 0.5rem;
   font-size: 14px;
 }
 
 .actionIcon {
   position: relative;
   top: 1px;
+}
+
+.optBtn {
+  display: inline-block;
+}
+
+.optBtnIcon {
+  position: relative;
+  top: 3px;
+  margin-left: 0.4rem;
 }

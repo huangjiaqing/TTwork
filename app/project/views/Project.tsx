@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as styles from './Project.css'
-import { Breadcrumb } from 'antd'
+import className from 'classnames'
+import { Breadcrumb,Popover } from 'antd'
 import { Icon } from '~/app/base'
 
 export default class Project extends React.Component {
@@ -18,9 +19,11 @@ export default class Project extends React.Component {
     return (
       <div className={styles.header}>
         <section className={styles.nav}>
-          <Breadcrumb>
+          <Breadcrumb separator=">">
             <Breadcrumb.Item>首页</Breadcrumb.Item>
-            <Breadcrumb.Item>油车文化</Breadcrumb.Item>
+            <Breadcrumb.Item>
+              {this.renderProjectOpt('立白悦协作')}
+            </Breadcrumb.Item>
           </Breadcrumb>
         </section>
         <section className={styles.action}>
@@ -38,6 +41,24 @@ export default class Project extends React.Component {
       <div className={styles.body}>
         {/* 这是body */}
       </div>
+    )
+  }
+
+  renderProjectOpt(chilren) {
+    return (
+      <Popover
+        content="你好"
+        placement="bottom"
+        trigger="click"
+      >
+        <div className={className(styles.optBtn, 'can-click')}>
+          <span>{chilren}</span>
+          <Icon
+            type="icon-chevron-down"
+            className={styles.optBtnIcon}
+          />
+        </div>
+      </Popover>
     )
   }
 }
