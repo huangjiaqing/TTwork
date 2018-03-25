@@ -29,7 +29,7 @@
 .projItem {
   width: 272px;
   height: 136px;
-  background-color: #13c2c2;
+  background-color: #eee;
   border-radius: 0.6rem;
   display: inline-block;
   transition: box-shadow 0.218s ease;

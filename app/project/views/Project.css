@@ -34,6 +34,29 @@
   background-color: #eee;
   border-radius: 3px;
   margin-right: 1rem;
+  padding: 0.8rem;
+}
+
+.create {
+  height: auto;
+  max-height: 100%;
+}
+
+.createStage {
+  display: flex;
+  align-items: center;
+  color: gray;
+  line-height: 1.5;
+}
+
+.createIcon {
+  margin: 0 0.8rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  font-weight: 400;
 }
 
 .nav {

@@ -38,16 +38,16 @@ export default class Organization extends React.Component {
             <div className={styles.projGroup}>
               {this.renderOrgItem({name: '立白悦协作', stared: true})}
               {this.renderOrgItem({name: '北控项目面板', stared: true})}
-              {this.renderOrgItem({name: '固定资产系统', stared: true})}
-              {this.renderOrgItem({name: '黄嘉庆的项目', stared: true})}
-              {this.renderOrgItem({name: '天明的项目', stared: true})}
-              {this.renderOrgItem({name: '梁爽的项目', stared: true})}
+              {this.renderOrgItem({name: '固定资产系统'})}
+              {this.renderOrgItem({name: '黄嘉庆的项目'})}
+              {this.renderOrgItem({name: '天明的项目'})}
+              {this.renderOrgItem({name: '梁爽的项目'})}
             </div>
           </section>
           <section>
             <h2>项目回收站</h2>
             <div className={styles.projGroup}>
-              {this.renderOrgItem({name: '大招科技', stared: true})}
+              {this.renderOrgItem({name: '大招科技'})}
             </div>
           </section>
         </div>

@@ -15,7 +15,11 @@ export default class Header extends Component {
         <section className={styles.search}>
         </section>
         <section className={styles.me}>
-          <Avatar icon="user" src="https://i.loli.net/2018/03/25/5ab6f20c79726.jpg"/>
+          <Avatar
+            icon="user"
+            src="https://i.loli.net/2018/03/25/5ab6f20c79726.jpg"
+            size="small"
+          />
         </section>
       </header>
     )

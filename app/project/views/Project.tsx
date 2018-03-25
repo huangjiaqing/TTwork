@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as styles from './Project.css'
 import className from 'classnames'
 import { Breadcrumb,Popover } from 'antd'
+import { Link } from 'react-router-dom'
 import { Icon } from '~/app/base'
 
 export default class Project extends React.Component {
@@ -20,7 +21,7 @@ export default class Project extends React.Component {
       <div className={styles.header}>
         <section className={styles.nav}>
           <Breadcrumb separator=">">
-            <Breadcrumb.Item>首页</Breadcrumb.Item>
+            <Breadcrumb.Item><Link to="/org">首页</Link></Breadcrumb.Item>
             <Breadcrumb.Item>
               {this.renderProjectOpt('立白悦协作')}
             </Breadcrumb.Item>
@@ -40,21 +41,33 @@ export default class Project extends React.Component {
     return (
       <div className={styles.body}>
         <div className={styles.scrum}>
-          {this.renderStage()}
-          {this.renderStage()}
-          {this.renderStage()}
-          {this.renderStage()}
-          {this.renderStage()}
-          {this.renderStage()}
+          {this.renderStage({ stageName: '待处理' })}
+          {this.renderStage({ stageName: '进行中' })}
+          {this.renderStage({ stageName: '测试中' })}
+          {this.renderStage({ stageName: '已完成' })}
+          {this.renderStage({ isCreate: true })}
         </div>
       </div>
     )
   }
 
-  renderStage() {
+  renderStage({ stageName, isCreate }:{ stageName?: string, isCreate?: boolean }) {
     return (
-      <div className={styles.stage}>
-        
+      <div className={className(styles.stage, isCreate ? styles.create : '')}>
+        {
+          isCreate
+            ? (
+              <div className={className(styles.createStage, 'can-click')}>
+                <Icon type="icon-plus" className={styles.createIcon}/>
+                <span>新建任务列表 ...</span>
+              </div>
+            )
+            : (
+              <div>
+                <h2 className={styles.title}>{stageName} · 1</h2>
+              </div>
+            )
+        }
       </div>
     )
   }
