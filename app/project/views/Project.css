@@ -1,0 +1,44 @@
+.project {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: inherit;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.body {
+  flex: 1;
+  background-color: #fff;
+}
+
+.nav {
+  padding-left: 1.2rem;
+}
+
+.action {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.action > li {
+  display: flex;
+  align-items: center;
+  padding: 0 1.2rem;
+}
+
+.action > li > span:last-child {
+  margin-left: 0.4rem;
+  font-size: 14px;
+}
+
+.actionIcon {
+  position: relative;
+  top: 1px;
+}
