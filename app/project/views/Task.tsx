@@ -3,7 +3,9 @@ import * as styles from './Task.css'
 
 const Task = () => (
   <div className={styles.task}>
-    任务
+    <div className={styles.body}>
+
+    </div>
   </div>
 )
 

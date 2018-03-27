@@ -22,9 +22,9 @@ export default function () {
         </Stage>
         <Stage stageName="进行中"/>
         <Stage stageName="测试中"/>
-        <Stage stageName="已测试"/>
+        {/* <Stage stageName="已测试"/>
         <Stage stageName="已通过"/>
-        <Stage stageName="已完成"/>
+        <Stage stageName="已完成"/> */}
         <Stage isCreate={true}/>
       </Scrum>
     </div>

@@ -29,7 +29,7 @@ export default function ({ stageName, isCreate, children }: Props) {
               {children}
             </div>
             <div className={styles.addTask} key="add">
-
+            
             </div>
           </div>
         ]
