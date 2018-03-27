@@ -8,5 +8,5 @@
 .body {
   flex: 1;
   background-color: #f5f5f5;
-  padding-top: 4rem;
+  overflow: auto;
 }

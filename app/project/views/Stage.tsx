@@ -1,14 +1,16 @@
 import * as React from 'react'
 import * as styles from './Stage.css'
+import Task from './Task'
 import className from 'classnames'
 import { Icon } from '~/app/base'
 
 interface Props {
   stageName?: string,
-  isCreate?: boolean
+  isCreate?: boolean,
+  children?: Task
 }
 
-export default function ({ stageName, isCreate }: Props) {
+export default function ({ stageName, isCreate, children }: Props) {
 
   return (
     <div className={className(styles.stage, isCreate ? styles.create : '')}>
@@ -20,11 +22,17 @@ export default function ({ stageName, isCreate }: Props) {
             <span>新建任务列表 ...</span>
           </div>
         )
-        : (
-          <div>
-            <h2 className={styles.title}>{stageName} · 1</h2>
+        : [
+          <h2 className={styles.title} key="title">{stageName} · 1</h2>,
+          <div className={styles.tasks} key="list">
+            <div className={styles.list}>
+              {children}
+            </div>
+            <div className={styles.addTask} key="add">
+
+            </div>
           </div>
-        )
+        ]
     }
   </div>
   )
