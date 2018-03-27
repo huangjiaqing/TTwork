@@ -4,13 +4,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.optBtn {
-  display: inline-block;
-}
-
-.optBtnIcon {
-  position: relative;
-  top: 3px;
-  margin-left: 0.4rem;
-}
