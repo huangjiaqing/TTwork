@@ -10,10 +10,15 @@ interface Props {
   children?: Task
 }
 
-export default function ({ stageName, isCreate, children }: Props) {
+const onDragEnter = e => {
+  console.log('目标元素/被拖拽元素进入目标元素：', e.target)
+  return true
+}
+
+function Stage({ stageName, isCreate, children }: Props) {
 
   return (
-    <div className={className(styles.stage, isCreate ? styles.create : '')}>
+    <div className={className(styles.stage, isCreate ? styles.create : '')} onDragEnter={onDragEnter}>
     {
       isCreate
         ? (
@@ -37,3 +42,5 @@ export default function ({ stageName, isCreate, children }: Props) {
   </div>
   )
 }
+
+export default Stage
