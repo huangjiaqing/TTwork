@@ -10,37 +10,37 @@ interface Props {
   children?: Task
 }
 
-const onDragEnter = e => {
-  console.log('目标元素/被拖拽元素进入目标元素：', e.target)
-  return true
-}
+export default class Stage extends React.Component<Props> {
 
-function Stage({ stageName, isCreate, children }: Props) {
+  render() {
+    const { stageName, isCreate, children } = this.props
 
-  return (
-    <div className={className(styles.stage, isCreate ? styles.create : '')} onDragEnter={onDragEnter}>
-    {
-      isCreate
-        ? (
-          <div className={className(styles.createStage, 'can-click')}>
-            <Icon type="icon-plus" className={styles.createIcon}/>
-            <span>新建任务列表 ...</span>
-          </div>
-        )
-        : [
-          <h2 className={styles.title} key="title">{stageName} · 1</h2>,
-          <div className={styles.tasks} key="list">
-            <div className={styles.list}>
-              {children}
+    return (
+      <div className={className(styles.stage, isCreate ? styles.create : '')}>
+      {
+        isCreate
+          ? (
+            <div className={className(styles.createStage, 'can-click')}>
+              <Icon type="icon-plus" className={styles.createIcon}/>
+              <span>新建任务列表 ...</span>
             </div>
-            <div className={styles.addTask} key="add">
-            
+          )
+          : [
+            <h2 className={styles.title} key="title">{stageName} · 1</h2>,
+            <div
+              className={styles.tasks}
+              key="list"
+            >
+              <div className={styles.list} ref="taskList">
+                {children}
+              </div>
+              <div className={styles.addTask} key="add">
+                
+              </div>
             </div>
-          </div>
-        ]
-    }
-  </div>
-  )
+          ]
+      }
+      </div>
+    )
+  }
 }
-
-export default Stage
