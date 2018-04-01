@@ -5,7 +5,7 @@ import { Breadcrumb } from 'antd'
 import { Link } from 'react-router-dom'
 import { Icon } from '~/app/base'
 
-export default function () {
+export default function Header() {
 
   return (
     <div className={styles.header}>

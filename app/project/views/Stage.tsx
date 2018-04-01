@@ -4,18 +4,43 @@ import Task from './Task'
 import className from 'classnames'
 import { Icon } from '~/app/base'
 
+import { DropTarget } from 'react-dnd';
+
+const TASK = 'task'
+
+const stageTarget = {
+  drop(props, monitor) {
+    console.log('移动到这里啦/props:', props)
+    console.log('移动到这里啦/monitor：', monitor)
+    props.changeStage()
+  }
+}
+
+const collect = (connect, monitor) => {
+  return {
+    connectDropTarget: connect.dropTarget()
+  }
+}
+
 interface Props {
   stageName?: string,
   isCreate?: boolean,
-  children?: Task
+  children?: Task,
+  connectDropTarget?: any,
+  [props: string]: any
 }
 
-export default class Stage extends React.Component<Props> {
+class Stage extends React.Component<Props, any> {
 
   render() {
-    const { stageName, isCreate, children } = this.props
+    const {
+      stageName,
+      isCreate,
+      children,
+      connectDropTarget,
+    } = this.props
 
-    return (
+    return connectDropTarget(
       <div className={className(styles.stage, isCreate ? styles.create : '')}>
       {
         isCreate
@@ -44,3 +69,5 @@ export default class Stage extends React.Component<Props> {
     )
   }
 }
+
+export default DropTarget(TASK, stageTarget, collect)(Stage)
